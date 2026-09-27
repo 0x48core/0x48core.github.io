@@ -1,0 +1,74 @@
+@use "sass:list";
+@use "sass:map";
+
+// Font.
+$font: (
+  primary: ("Lato","Helvetica Neue",Helvetica,sans-serif),
+  secondary: ("Noto Serif",Georgia,serif)
+);
+
+/// Removes a specific item from a list.
+/// @author Hugo Giraudel
+/// @param {list} $list List.
+/// @param {integer} $index Index.
+/// @return {list} Updated list.
+@function remove-nth($list, $index) {
+
+  $result: null;
+
+  @if type-of($index) != number {
+    @warn "$index: #{quote($index)} is not a number for `remove-nth`.";
+  }
+  @else if $index == 0 {
+    @warn "List index 0 must be a non-zero integer for `remove-nth`.";
+  }
+  @else if abs($index) > length($list) {
+    @warn "List index is #{$index} but list is only #{length($list)} item long for `remove-nth`.";
+  }
+  @else {
+
+    $result: ();
+
+    @if $index < 0 {
+      $index: length($list) + $index + 1;
+    }
+
+    @for $i from 1 through length($list) {
+
+      @if $i != $index {
+        $result: append($result, list.nth($list, $i));
+      }
+
+    }
+
+  }
+
+  @return $result;
+
+}
+
+/// Gets a value from a map.
+/// @author Hugo Giraudel
+/// @param {map} $map Map.
+/// @param {string} $keys Key(s).
+/// @return {string} Value.
+@function val($map, $keys...) {
+
+  @if list.nth($keys, 1) == null {
+    $keys: remove-nth($keys, 1);
+  }
+
+  @each $key in $keys {
+    $map: map.get($map, $key);
+  }
+
+  @return $map;
+
+}
+
+/// Gets a font value.
+/// @param {string} $keys Key(s).
+/// @return {string} Value.
+@function font($keys...) {
+  @return val($font, $keys...);
+}

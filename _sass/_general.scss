@@ -1,0 +1,304 @@
+@use "functions" as *;
+
+/* ==========================================================================
+   2. General
+   ========================================================================== */
+
+html {
+  box-sizing: border-box;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 100%;
+  }
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  -webkit-transition: color .3s ease;
+  transition: color .3s ease;
+  &:hover {
+    color: var(--text-strong);
+    text-decoration: underline;
+  }
+}
+
+p {
+  margin: 0 0 1.66667em;
+}
+
+address {
+  font-style: italic;
+  margin: 0 0 1.66667em;
+}
+
+mark {
+  background: #fff7c5;
+  padding: 0 3px;
+}
+
+ins {
+  background: #fff7c5;
+  padding: 0 3px;
+  text-decoration: none;
+}
+
+pre {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.88889rem;
+  margin: 0 0 1.875em;
+  overflow: auto;
+  padding: 10px;
+  white-space: pre;
+}
+
+:not(pre) > code {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.88889rem;
+  padding: 1px 3px;
+  white-space: pre;
+}
+
+blockquote {
+  border-left: 3px solid var(--text-strong);
+  color: var(--text-strong);
+  font-family: font(secondary);
+  font-style: italic;
+  margin: 0 0 1.66667em -30px;
+  padding: 0 0 0 30px;
+
+  @media only screen and (max-width: 910px) {
+    margin-left: 0;
+    padding-left: 24px;
+  }
+
+  p {
+    margin: 0 0 0.83333em;
+  }
+
+  small,
+  cite {
+    color: var(--text);
+    display: inline-block;
+    font-size: 0.88889em;
+  }
+}
+
+dl {
+  margin: 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 0 1.66667em;
+}
+
+ul,
+ol {
+  margin: 0 0 1.66667em;
+  padding: 0 0 0 24px;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+}
+
+hr {
+  background: var(--rule);
+  border: 0;
+  height: 1px;
+  margin: 2.5em 0;
+}
+
+table {
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.33333;
+  margin: 0 0 1.66667em;
+  text-align: left;
+  width: 100%;
+}
+
+caption {
+  font-size: 0.88889em;
+  margin-bottom: 0.9375em;
+  text-align: left;
+}
+
+th,
+td {
+  border-top: 1px solid var(--rule);
+  padding: 8px;
+}
+
+th {
+   color: var(--text-strong);
+   font-weight: bold;
+}
+
+table tbody > tr:nth-child(odd) {
+  background: var(--surface);
+}
+
+img {
+  border-radius: 0;
+  height: auto;
+  max-width: 100%;
+}
+
+embed,
+iframe,
+object,
+video {
+  max-width: 100%;
+}
+
+.js-reframe,
+.image-card {
+  margin: 0 0 1.66667em;
+}
+
+.image-card figcaption {
+  color: var(--text-muted);
+  font-size: 0.77778rem;
+  padding-top: 0.5em;
+  text-align: left;
+}
+
+/* Clearing floats */
+.inner:after,
+.site-header:after,
+.site-footer:after {
+  clear: both;
+}
+
+.inner:before,
+.inner:after,
+.post-content:before,
+.post-content:after {
+  content: "";
+  display: table;
+}
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+  border: 0 none;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+}
+
+/* Text selection */
+::-moz-selection {
+  background: #e4edfa;
+  color: var(--text-strong);
+  text-shadow: none;
+}
+
+::selection {
+  background: #e4edfa;
+  color: var(--text-strong);
+  text-shadow: none;
+}
+
+/* Buttons */
+#menu-open,
+#menu-close,
+.back-to-top {
+	background: 0;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  box-sizing: border-box;
+	color: var(--text);
+	padding: 0;
+	position: relative;
+	height: 36px;
+  width: 36px;
+  -webkit-transition: border-color .3s, color .3s;
+	transition: border-color .3s, color .3s;
+
+  &:hover,
+	&:focus,
+	&:active {
+		border-color: var(--accent);
+    color: var(--accent);
+		outline: 0;
+	}
+}
+
+/* Custom icons */
+.icon-menu {
+  background: currentColor;
+  color: inherit;
+	height: 2px;
+	left: 50%;
+  margin-left: -11px;
+  margin-top: -1px;
+  position: absolute;
+  top: 50%;
+	width: 22px;
+
+	&:before,
+	&:after {
+		background: currentColor;
+		content: "";
+		height: 100%;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+
+	&:before {
+		top: -5px;
+	}
+
+	&:after {
+		bottom: -5px;
+	}
+}
+
+.icon-close {
+	background: 0;
+	color: inherit;
+  height: 2px;
+  left: 50%;
+  margin-left: -12px;
+  margin-top: -1px;
+	position: absolute;
+	top: 50%;
+	width: 24px;
+
+	&:before,
+	&:after {
+		background: currentColor;
+		content: "";
+		height: 100%;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+
+	&:before {
+		top: 0;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+	&:after {
+		top: 0;
+		-webkit-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+	}
+}
