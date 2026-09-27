@@ -1,0 +1,74 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site language
+lang: en-US
+
+# Site title
+title: "Augustus Nguyen"
+
+# A description of your site for meta tag, search engine results.
+description: "A software engineer who wishes for a mathematician's mind."
+
+# The subpath of your site, e.g. /blog, for generating urls.
+baseurl: ""
+
+# The base hostname & protocol of your site for where absolute urls are needed.
+url: "https://0x48core.github.io"
+
+# Favicon
+favicon: ""
+
+# Google Analytics 4 Measurement ID, e.g. "G-XXXXXXXXXX"
+google_analytics: "G-TEZD95TF9D"
+
+# Site navigation - each item must have a title and a url.
+navigation:
+  - text: Home
+    url: /
+  - text: About
+    url: /about/
+  - text: Blogs
+    url: /blogs/
+  - text: Tags
+    url: /tags/
+
+# Site footer
+footer:
+  content: "&copy; **[Augustus Nguyen](https://github.com/0x48core)** all rights reserved."
+  has_social: true
+
+# Plugins
+plugins:
+  - jekyll-katex
+
+# Permalinks
+permalink: /:title
+
+# Conversion
+markdown: kramdown
+
+# Files that must never reach the published site. Setting this key replaces
+# Jekyll's defaults, so the default entries are repeated here.
+exclude:
+  - docs/
+  - script/
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed

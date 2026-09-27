@@ -1,0 +1,40 @@
+---
+---
+
+/**
+ * Scriptor Jekyll Theme 2.0.0
+ * By Just Good Themes - https://justgoodthemes.com/
+*/
+
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+/*
+  1. Reset
+  2. General
+  3. Structure
+  4. Site Header
+  5. Content
+  6. Posts Navigation
+  7. Site Footer
+  8. Animations
+  9. Code highlighting
+  10. Post table of contents
+  11. Formal statements
+*/
+
+// Imports
+@use "tokens";
+@use "typography";
+@use "functions";
+@use "reset";
+@use "general";
+@use "structure";
+@use "site-header";
+@use "content";
+@use "post-toc";
+@use "statements";
+@use "posts-navigation";
+@use "site-footer";
+@use "animations";
+@use "code";

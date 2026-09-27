@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<main class="main-content prose">
+
+  <div class="hub-intro">
+    <p>I'm passionate about mathematics and programming. I write about things I find interesting along the way.</p>
+  </div>
+
+  <h2 class="hub-label">Writing</h2>
+  <ul class="entry-list js-post-feed">
+    {%- assign recent = site.posts | slice: 0, 5 -%}
+    {%- for p in recent %}
+    {% include post-entry.html post=p %}
+    {%- endfor %}
+  </ul>
+  <div class="js-post-feed-marker" data-src="{{ '/posts.json' | relative_url }}" aria-hidden="true"></div>
+  <p class="hub-more"><a href="{{ '/blogs/' | relative_url }}">All writing &rarr;</a></p>
+
+  {%- if site.data.projects.size > 0 %}
+  <h2 class="hub-label">Projects</h2>
+  <ul class="entry-list">
+    {%- for project in site.data.projects %}
+    <li class="entry">
+      <a class="entry-title" href="{{ project.url }}">{{ project.name }}</a>
+      <p class="entry-desc">{{ project.description }}</p>
+    </li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+
+</main>
